@@ -1,13 +1,14 @@
 class Solution {
 public:
-    string longestDiverseString(int a, int b, int c, char aa='a', char bb='b', char cc = 'c'){
-        if(a < b) return longestDiverseString(b, a, c, bb, aa, cc);
-        if(b < c) return longestDiverseString(a, c, b, aa, cc, bb);
-        if(b==0){
-            return string(min(a, 2), aa);
-        }
-        auto use_a = min(a, 2);
-        auto use_b = a - use_a >= b ? 1 : 0;
-        return string(use_a, aa) + string(use_b, bb) + longestDiverseString(a-use_a, b - use_b, c, aa, bb, cc);
-    }
+    string longestDiverseString(int lg, int med, int sm, char ch_lg = 'a', char ch_med = 'b', char ch_sm = 'c') {
+    if (lg < med)
+        return longestDiverseString(med, lg, sm, ch_med, ch_lg, ch_sm);
+    if (med < sm)
+        return longestDiverseString(lg, sm, med, ch_lg, ch_sm, ch_med);
+    if (med == 0)
+        return string(min(2, lg), ch_lg);
+    auto use_lg = min(2, lg), use_med = lg - use_lg >= med ? 1 : 0; 
+    return string(use_lg, ch_lg) +  string(use_med, ch_med) + 
+		longestDiverseString(lg - use_lg, med - use_med, sm, ch_lg, ch_med, ch_sm);
+}
 };
