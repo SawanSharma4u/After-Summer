@@ -1,5 +1,5 @@
 class Solution {
-    vector<int> find(vector<vector<int>> r, int k){
+    vector<int> find(vector<vector<int>> &r, int k){
         unordered_map<int, list<int>> adj;
         int n = r.size();
         vector<int> indegree(k+1, 0);
