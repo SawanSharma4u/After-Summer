@@ -4,7 +4,6 @@ public:
         vector<vector<int>> dp(matrix.size(), vector<int>(matrix[0].size()));
         int ans = 0;
         for(int i = matrix.size()-1; i >= 0; i--){
-            cout<<ans<<" ";
             for(int j = matrix[0].size()-1; j >= 0; j--){
                 if(i==matrix.size()-1 || j == matrix[0].size()-1){
                     dp[i][j] = matrix[i][j]-'0';
