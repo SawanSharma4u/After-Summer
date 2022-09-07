@@ -6,20 +6,14 @@ public:
         for(int i = 0; i < t.size(); i++){
             ++chek[t[i]];
         }
-        int i = -1, j = -1;
+        int i = 0, j = 0;
         int k = 0, ans = INT_MAX;
         int st, ed; 
         bool f = true;
         while(k < s.length()){
             if(chek.find(s[k])!=chek.end()){
                 --chek[s[k]];
-                if(i==-1){
-                    i = k;
-                    j = k;
-                }
-                else{
-                    j = k;
-                }
+                j = k;
                 bool flag = false;
                 for(auto i:chek){
                     if(i.second > 0){
